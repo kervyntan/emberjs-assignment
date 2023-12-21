@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "es2105",
+        "experimentalDecorators": true
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+
+}
