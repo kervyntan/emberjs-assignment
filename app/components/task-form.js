@@ -3,7 +3,12 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class TaskFormComponent extends Component {
-  @tracked userInput = { title: '', description: '', status: '', dueDate: '' };
+  @tracked userInput = {
+    title: '',
+    description: '',
+    status: '',
+    dueDate: null,
+  };
   @tracked hasSubmitted = false;
 
   @action

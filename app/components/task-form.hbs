@@ -7,13 +7,21 @@
 
       <div class="task-form-group">
         <label for="title"> Title: </label>
-        <Input name="title" type="text" placeholder="Title goes here." @value={{this.userInput.title}} {{ on "change" this.logUserInputs }}/>
+        <Input
+          name="title"
+          @type="text"
+          placeholder="Title goes here."
+          maxlength="255"
+          @value={{this.userInput.title}}
+          {{on "input" this.logUserInputs}}
+        />
       </div>
       <div class="task-form-group">
         <label for="description"> Description: </label>
         <Input
           name="description"
-          type="text"
+          @type="text"
+          maxlength="255"
           placeholder="Description goes here."
           @value={{this.userInput.description}}
         />
@@ -21,14 +29,20 @@
 
       <div class="task-form-group">
         <label for="status"> Status: </label>
-        <Input name="status" type="text" placeholder="Status goes here." @value={{this.userInput.status}}/>
+        <Input
+          name="status"
+          @type="text"
+          maxlength="50"
+          placeholder="Status goes here."
+          @value={{this.userInput.status}}
+        />
       </div>
 
       <div class="task-form-group">
         <label for="dueDate"> Due Date: </label>
         <Input
           name="dueDate"
-          type="datetime-local"
+          @type="datetime-local"
           placeholder="dueDate goes here."
           @value={{this.userInput.dueDate}}
         />
