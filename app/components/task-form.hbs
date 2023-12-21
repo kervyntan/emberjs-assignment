@@ -7,28 +7,30 @@
 
       <div class="task-form-group">
         <label for="title"> Title: </label>
-        <input name="title" type="text" placeholder="Title goes here." />
+        <Input name="title" type="text" placeholder="Title goes here." @value={{this.userInput.title}} {{ on "change" this.logUserInputs }}/>
       </div>
       <div class="task-form-group">
         <label for="description"> Description: </label>
-        <input
+        <Input
           name="description"
           type="text"
           placeholder="Description goes here."
+          @value={{this.userInput.description}}
         />
       </div>
 
       <div class="task-form-group">
         <label for="status"> Status: </label>
-        <input name="status" type="text" placeholder="Status goes here." />
+        <Input name="status" type="text" placeholder="Status goes here." @value={{this.userInput.status}}/>
       </div>
 
       <div class="task-form-group">
         <label for="dueDate"> Due Date: </label>
-        <input
+        <Input
           name="dueDate"
           type="datetime-local"
           placeholder="dueDate goes here."
+          @value={{this.userInput.dueDate}}
         />
       </div>
       <button type="submit" class="btn createTask"> Create Task! </button>
