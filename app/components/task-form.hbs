@@ -24,6 +24,7 @@
           maxlength="255"
           placeholder="Description goes here."
           @value={{this.userInput.description}}
+          {{on "input" this.logUserInputs}}
         />
       </div>
 
@@ -35,6 +36,7 @@
           maxlength="50"
           placeholder="Status goes here."
           @value={{this.userInput.status}}
+          {{on "input" this.logUserInputs}}
         />
       </div>
 
@@ -45,9 +47,10 @@
           @type="datetime-local"
           placeholder="dueDate goes here."
           @value={{this.userInput.dueDate}}
+          {{on "input" this.logUserInputs}}
         />
       </div>
-      <button type="submit" class="btn createTask"> Create Task! </button>
+      <button type="submit" class="btn createTask" {{ on "click" this.updateTaskModel}}> Create Task! </button>
     </form>
   </div>
 </div>
