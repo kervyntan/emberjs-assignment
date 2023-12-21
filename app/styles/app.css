@@ -64,3 +64,20 @@ form.task-form .task-form-group {
     align-items: center;
     justify-content: space-between;
 }
+
+.btn {
+  cursor: pointer;
+}
+
+.btn.createTask {
+  width: 30%;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid lightgray;
+  background: transparent;
+}
+
+.btn:hover {
+  background: #000;
+  color: #FFF;
+}
