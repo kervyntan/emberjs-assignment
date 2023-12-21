@@ -3,7 +3,7 @@
 <div class="task-container">
   <div class="task-inner-container">
     <h1 class="task-heading"> Create Task Below: </h1>
-    <form action="submit" class="task-form">
+    <form action="submit" {{ on "submit" this.preventDefault}} class="task-form">
 
       <div class="task-form-group">
         <label for="title"> Title: </label>
@@ -13,9 +13,20 @@
           placeholder="Title goes here."
           maxlength="255"
           @value={{this.userInput.title}}
-          {{on "input" this.logUserInputs}}
+          {{on "input" this.checkUserInputs}}
         />
       </div>
+
+      <div class="task-form-group">
+        <label for="dueDate"> Due Date: </label>
+        <Input
+          name="dueDate"
+          @type="datetime-local"
+          @value={{this.userInput.dueDate}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
       <div class="task-form-group">
         <label for="description"> Description: </label>
         <Input
@@ -24,7 +35,7 @@
           maxlength="255"
           placeholder="Description goes here."
           @value={{this.userInput.description}}
-          {{on "input" this.logUserInputs}}
+          {{on "input" this.checkUserInputs}}
         />
       </div>
 
@@ -36,21 +47,18 @@
           maxlength="50"
           placeholder="Status goes here."
           @value={{this.userInput.status}}
-          {{on "input" this.logUserInputs}}
+          {{on "input" this.checkUserInputs}}
         />
       </div>
 
-      <div class="task-form-group">
-        <label for="dueDate"> Due Date: </label>
-        <Input
-          name="dueDate"
-          @type="datetime-local"
-          placeholder="dueDate goes here."
-          @value={{this.userInput.dueDate}}
-          {{on "input" this.logUserInputs}}
-        />
-      </div>
       <button type="submit" class="btn createTask" {{ on "click" this.updateTaskModel}}> Create Task! </button>
+      {{#if this.updatedSuccessful}}
+    <p class="alertMessage"> Task has been created successfully! </p>
+      {{/if}}
+    {{#if this.areInputsValid}}
+         <p class="alertMessage"> Please verify there are no empty fields. </p>
+         <p class="alertMessage"> Due date cannot be empty/before today's date.</p>
+    {{/if}}
     </form>
   </div>
 </div>
