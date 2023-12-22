@@ -59,8 +59,6 @@ export default class TaskUpdateForm extends Component {
 
   @action
   updateTaskModel() {
-    console.log(this.checkValidityInputs());
-    console.log(this.validity);
     if (this.checkValidityInputs()) {
       // find the ID for the task first
       fetch('http://localhost:2000/api/Tasks')

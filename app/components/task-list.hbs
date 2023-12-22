@@ -1,2 +1,32 @@
-{{!-- Need to show the list of tasks pulled from Heroku psql --}}
-<p>hello</p>
+{{! Need to show the list of tasks pulled from Heroku psql }}
+{{this.fetchTasks}}
+<div class="task-container">
+  <div class="task-inner-container task-list">
+    <h1 class="task-heading"> Current Tasks: </h1>
+    {{#if this.isListEmpty}}
+    <p class="alertMessage"> No Tasks are available at the moment. Please give the site a few seconds to load. </p>
+    {{else}}
+    {{#each this.listOfTasks as |task index|}}
+      <ul style="margin-block: 12px;">
+        <p> {{index}} </p>
+        <p>
+          Title:
+          {{task.title}}
+        </p>
+        <p>
+          Due Date:
+          {{task.dueDate}}
+        </p>
+        <p>
+          Description:
+          {{task.description}}
+        </p>
+        <p>
+          Status:
+          {{task.status}}
+        </p>
+      </ul>
+    {{/each}}
+    {{/if}}
+  </div>
+</div>

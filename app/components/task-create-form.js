@@ -69,7 +69,7 @@ export default class TaskCreateFormComponent extends Component {
           this.updatedSuccessful = true;
           setTimeout(() => {
             this.updatedSuccessful = false;
-          }, 100000);
+          }, 3000);
         })
         .catch((err) => {
           console.log(err);
