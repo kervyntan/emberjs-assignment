@@ -4,6 +4,22 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.header-container {
+  padding: 20px;
+}
+
+.header-inner-container {
+  width: 88%;
+  display: flex;
+  margin-inline: auto;
+  justify-content: space-around;
+}
+
 .task-container {
   display: flex;
   min-height: 100vh;
@@ -55,11 +71,14 @@ form.task-form input {
 }
 
 form.task-form label {
-  font-size: 14px;
+  font-size: 18px;
+  margin-right: auto;
+  margin-bottom: 12px;
 }
 
 form.task-form .task-form-group {
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -89,15 +108,6 @@ form.task-form .task-form-group {
 }
 
 @media (max-width: 1080px) {
-  form.task-form .task-form-group {
-    flex-direction: column;
-  }
-
-  form.task-form label {
-    margin-right: auto;
-    margin-bottom: 12px;
-  }
-
   .btn.createTask {
     width: 70%;
   }

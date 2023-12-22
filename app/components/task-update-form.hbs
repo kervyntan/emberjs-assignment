@@ -1,0 +1,76 @@
+{{! How to call the API }}
+{{! Adding form validation }}
+<div class="task-container">
+  <div class="task-inner-container">
+    <h1 class="task-heading"> Update Task Below: </h1>
+    <form action="submit" {{ on "submit" this.preventDefault}} class="task-form">
+
+    <div class="task-form-group">
+        <label for="existingTitle"> Existing task title: </label>
+        <Input
+          name="existingTitle"
+          @type="text"
+          placeholder="Existing Title:"
+          maxlength="255"
+          @value={{this.userInput.existingTitle}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
+      <div class="task-form-group">
+        <label for="title"> New title: </label>
+        <Input
+          name="title"
+          @type="text"
+          placeholder="New title goes here."
+          maxlength="255"
+          @value={{this.userInput.title}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
+      <div class="task-form-group">
+        <label for="dueDate"> New Due Date: </label>
+        <Input
+          name="dueDate"
+          @type="datetime-local"
+          @value={{this.userInput.dueDate}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
+      <div class="task-form-group">
+        <label for="description"> New Description: </label>
+        <Input
+          name="description"
+          @type="text"
+          maxlength="255"
+          placeholder="Description goes here."
+          @value={{this.userInput.description}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
+      <div class="task-form-group">
+        <label for="status"> New Status: </label>
+        <Input
+          name="status"
+          @type="text"
+          maxlength="50"
+          placeholder="Status goes here."
+          @value={{this.userInput.status}}
+          {{on "input" this.checkUserInputs}}
+        />
+      </div>
+
+      <button type="submit" class="btn createTask" {{ on "click" this.updateTaskModel}}> Update Task! </button>
+      {{#if this.updatedSuccessful}}
+    <p class="alertMessage"> Task has been updated successfully! </p>
+      {{/if}}
+    {{#if this.areInputsValid}}
+         <p class="alertMessage"> Please verify there are no empty fields. </p>
+         <p class="alertMessage"> Due date cannot be empty/before today's date.</p>
+    {{/if}}
+    </form>
+  </div>
+</div>

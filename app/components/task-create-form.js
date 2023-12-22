@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import fetch from 'fetch';
 
-export default class TaskFormComponent extends Component {
+export default class TaskCreateFormComponent extends Component {
   @tracked userInput = {
     title: '',
     description: '',
